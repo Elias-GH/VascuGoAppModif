@@ -1,0 +1,145 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:eaze="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".ui.WeeklyExercice">
+
+    <org.eazegraph.lib.charts.PieChart
+        xmlns:eaze="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        eaze:egLegendHeight="0dp"
+        eaze:egInnerPadding="75"
+        eaze:egHighlightStrength="1"/>
+
+    <TextView
+        android:id="@+id/steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:gravity="center"
+        android:textSize="45sp"
+        android:text="10.000"/>
+
+    <TextView
+        android:id="@+id/unitfrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/steps"
+        android:layout_centerHorizontal="true"
+        android:text="@string/steps"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:id="@+id/averageandtotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/graph"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/average"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/averageandtotaltext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/averageandtotal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/average"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/total"/>
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_desc"
+        android:layout_below="@+id/counterdown_text"
+        android:text="Vous allez maintenant faire un test de 6 minutes: appuyez sur 'départ' puis marchez aussi vite que vous pouvez pendant 6 minutes. Une sonnerie vous indiquera la fin du test.
+Vous pouvez ralentir ou vous arrêter si necessaire, mais il est préférable de continuer à marcher même lentement.
+Vous devez vous arrêter si vous aves des douleurs à la poirtine, des étourdissements, des palpitations ou un essoufflement anormal
+"
+    />
+
+    <Button
+        android:id="@+id/counterdown_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_desc"
+        android:layout_marginTop="6dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/start" />
+
+ <!--      <org.eazegraph.lib.charts.BarChart
+        android:id="@+id/bargraph"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/averageandtotaltext"
+        android:layout_marginTop="20dp"
+        eaze:egLegendHeight="35dp"
+        eaze:egShowValues="true" />
+
+  <Button
+        android:id="@+id/pain_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/counterdown_button"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="13dp"
+        android:text="@string/pain" />
+
+    android:onClick="sendMessage"
+
+    <Button
+        android:id="@+id/stop_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/counterdown_button"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="12dp"
+        android:text="@string/stop" /> -->
+
+    <TextView
+        android:id="@+id/counterdown_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="06:00"
+        android:textSize="50dp"
+        android:layout_below="@+id/graph"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
