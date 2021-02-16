@@ -15,14 +15,10 @@
  */
 package de.j4velin.pedometer.ui;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -41,9 +37,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
+import org.eazegraph.lib.BuildConfig;
 import org.eazegraph.lib.charts.BarChart;
 import org.eazegraph.lib.charts.PieChart;
 import org.eazegraph.lib.models.BarModel;
@@ -55,7 +51,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import de.j4velin.pedometer.BuildConfig;
 import de.j4velin.pedometer.Database;
 import de.j4velin.pedometer.Database1;
 import de.j4velin.pedometer.R;
@@ -146,7 +141,7 @@ public class Fragment_Overview extends Fragment implements SensorEventListener {
         // register a sensorlistener to live update the UI if a step is taken
         SensorManager sm = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
         Sensor sensor = sm.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
-        if (sensor == null) {
+     /*  if (sensor == null) {
             new AlertDialog.Builder(getActivity()).setTitle(R.string.no_sensor)
                     .setMessage(R.string.no_sensor_explain)
                     .setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -162,7 +157,7 @@ public class Fragment_Overview extends Fragment implements SensorEventListener {
             }).create().show();
         } else {
             sm.registerListener(this, sensor, SensorManager.SENSOR_DELAY_UI, 0);
-        }
+        } */
 
         since_boot -= pauseDifference;
 

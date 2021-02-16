@@ -17,14 +17,9 @@
 package de.j4velin.pedometer.ui;
 
 import android.Manifest;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -32,20 +27,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.PermissionChecker;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import de.j4velin.pedometer.BuildConfig;
+import org.eazegraph.lib.BuildConfig;
+
 import de.j4velin.pedometer.R;
-import de.j4velin.pedometer.SensorListener;
 
 public class Activity_Main extends FragmentActivity {
 
@@ -54,10 +43,10 @@ public class Activity_Main extends FragmentActivity {
     @Override
     protected void onCreate(final Bundle b) {
         super.onCreate(b);
-        startService(new Intent(this, SensorListener.class));
+       // startService(new Intent(this, SensorListener.class));
         if (b == null) {
             // Create new fragment and transaction
-            Fragment newFragment = new Fragment_Overview();
+            Fragment newFragment = new Fragment_Information();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
             // Replace whatever is in the fragment_container view with this
@@ -78,7 +67,13 @@ public class Activity_Main extends FragmentActivity {
 
     }
 
+    public void OpenExercices() {
 
+        Fragment newFragment = new SpecificExercice();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(android.R.id.content, newFragment);
+        transaction.commit();
+    }
 
   /*  @Override
     public void onBackPressed() {

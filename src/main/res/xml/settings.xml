@@ -1,27 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Preference
-        android:key="goal"
-        android:title="@string/goal"/>
-    <Preference
-        android:key="stepsize"
-        android:title="@string/step_size"/>
-    <Preference
-        android:key="account"
-        android:summary="@string/sign_in"
-        android:title="@string/account"/>
-    <CheckBoxPreference
-        android:defaultValue="true"
-        android:key="notification"
-        android:title="@string/notification"/>
-    <Preference
-        android:key="export"
-        android:summary="@string/export_summary"
-        android:title="@string/export_title"/>
-    <Preference
-        android:key="import"
-        android:summary="@string/import_summary"
-        android:title="@string/import_title"/>
+<Preference
+    android:key="goal"
+    android:title="@string/goal"/>
+<Preference
+    android:key="stepsize"
+    android:title="@string/step_size"/>
+<Preference
+    android:key="account"
+    android:summary="@string/sign_in"
+    android:title="@string/account"/>
+<CheckBoxPreference
+    android:defaultValue="true"
+    android:key="notification"
+    android:title="@string/notification"/>
+<Preference
+    android:key="export"
+    android:summary="@string/export_summary"
+    android:title="@string/export_title"/>
+<Preference
+    android:key="import"
+    android:summary="@string/import_summary"
+    android:title="@string/import_title"/>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:eaze="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".MainActivity">
+
+    <org.eazegraph.lib.charts.PieChart
+        android:id="@+id/graph"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        eaze:egHighlightStrength="1"
+        eaze:egInnerPadding="75"
+        eaze:egLegendHeight="0dp" />
+
+    <TextView
+        android:id="@+id/steps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:gravity="center"
+        android:textSize="45sp"
+        android:text="10.000"/>
+
+    <TextView
+        android:id="@+id/unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/steps"
+        android:layout_centerHorizontal="true"
+        android:text="steps"
+        android:textSize="20sp"/>
+
+</RelativeLayout>
 
 </PreferenceScreen>
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+    <Button
+        android:id="@+id/bouton1"
+        android:layout_width="90dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:onClick="Accueil"
+        android:text="Accueil" />
+
+    <Button
+        android:id="@+id/bouton2"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:onClick="Exercices"
+        android:text="Exercices" />
+
+    <Button
+        android:textColor="@color/white"
+
+        android:id="@+id/bouton3"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:onClick="Historique"
+        android:text="Historique" />
+
+    <ImageView
+
+        android:id="@+id/bouton4"
+        android:src="@drawable/setting"
+        android:layout_gravity="bottom"
+        android:clickable="true"
+        android:onClick="Paramètres"
+        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:background="@color/blue" />
+
+
+</LinearLayout>

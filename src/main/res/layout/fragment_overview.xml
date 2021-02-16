@@ -92,5 +92,47 @@
         eaze:egShowValues="true"/>
 
 
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+
+        <Button
+            android:id="@+id/bouton1"
+            android:layout_width="90dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:text="Accueil" />
+
+        <Button
+            android:id="@+id/bouton2"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:text="Exercices" />
+
+        <Button
+
+
+            android:id="@+id/bouton3"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:text="Historique" />
+
+        <ImageView
+
+            android:id="@+id/bouton4"
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:clickable="true"
+            android:src="@drawable/setting" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>

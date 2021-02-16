@@ -58,6 +58,7 @@
     <string name="no_sensor_explain">This app requires a dedicated hardware step sensor - which your device does not have. This app won\'t run on your device.</string>
     <string name="permission_external_storage">No permission to access external storage</string>
     <string name="notification_settings">Notification settings</string>
+    <string name="show_information">Show information</string>
     <string name="specific_exercice">Specific exercice</string>
     <string name="weekly_exercice">Weekly exercice</string>
 

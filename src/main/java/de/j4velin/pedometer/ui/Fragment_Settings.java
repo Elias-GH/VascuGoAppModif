@@ -18,6 +18,8 @@ package de.j4velin.pedometer.ui;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -248,6 +250,9 @@ public class Fragment_Settings extends PreferenceFragment implements OnPreferenc
                 builder.create().show();
                 break;
             case R.string.import_title:
+
+                break;
+
             case R.string.export_title:
                 if (hasWriteExternalPermission()) {
                     if (preference.getTitleRes() == R.string.import_title) {
@@ -263,6 +268,15 @@ public class Fragment_Settings extends PreferenceFragment implements OnPreferenc
                             Toast.LENGTH_SHORT).show();
                 }
                 break;
+
+            case R.string.show_information:
+
+                Fragment newFragment = new Fragment_Information();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, newFragment);
+                transaction.commit();
+                break;
+
             case R.string.notification_settings:
                 API26Wrapper.launchNotificationSettings(getActivity());
                 break;
