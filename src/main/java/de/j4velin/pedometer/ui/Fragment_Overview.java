@@ -16,6 +16,7 @@
 package de.j4velin.pedometer.ui;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -37,6 +38,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.eazegraph.lib.BuildConfig;
@@ -59,11 +62,14 @@ import de.j4velin.pedometer.util.API26Wrapper;
 import de.j4velin.pedometer.util.Logger;
 import de.j4velin.pedometer.util.Util;
 
-public class Fragment_Overview extends Fragment implements SensorEventListener {
+public class Fragment_Overview extends Fragment implements SensorEventListener, View.OnClickListener {
 
     private TextView stepsView, totalView, averageView;
     private PieModel sliceGoal, sliceCurrent;
     private PieChart pg;
+
+    private Fragment newFragment;
+    private FragmentTransaction transaction;
 
     private int todayOffset, total_start, goal, since_boot, total_days;
     public final static NumberFormat formatter = NumberFormat.getInstance(Locale.getDefault());
@@ -91,6 +97,16 @@ public class Fragment_Overview extends Fragment implements SensorEventListener {
         totalView = (TextView) v.findViewById(R.id.total);
         averageView = (TextView) v.findViewById(R.id.average);
 
+        Button button3 = (Button) v.findViewById(R.id.bouton1);
+        Button button4 = (Button) v.findViewById(R.id.bouton2);
+        Button button5 = (Button) v.findViewById(R.id.bouton3);
+        ImageView button6 = (ImageView) v.findViewById(R.id.bouton4);
+
+
+        button3.setOnClickListener(this);
+        button4.setOnClickListener(this);
+        button5.setOnClickListener(this);
+        button6.setOnClickListener(this);
         pg = (PieChart) v.findViewById(R.id.graph);
 
         // slice for the steps taken today
@@ -206,36 +222,6 @@ public class Fragment_Overview extends Fragment implements SensorEventListener {
         db.close();
     }
 
-    @Override
-    public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
-        inflater.inflate(R.menu.main, menu);
-
-
-        for(int i = 0; i < menu.size(); i++) {
-            MenuItem item = menu.getItem(i);
-            if (item.getItemId() == R.id.action_home || item.getItemId() == R.id.action_about || item.getItemId() == R.id.action_achievements
-            || item.getItemId() == R.id.action_faq || item.getItemId() == R.id.action_settings || item.getItemId() == R.id.action_specific_exercice
-                    || item.getItemId() == R.id.action_specific_exercice || item.getItemId() == R.id.action_split_count || item.getItemId() == R.id.action_weekly_exercice)
-            {
-                SpannableString spanString = new SpannableString(menu.getItem(i).getTitle().toString());
-                int end = spanString.length();
-                spanString.setSpan(new RelativeSizeSpan(1.3f), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                item.setTitle(spanString);
-            }
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_split_count:
-                Dialog_Split.getDialog(getActivity(),
-                        total_start + Math.max(todayOffset + since_boot, 0)).show();
-                return true;
-            default:
-                return ((Activity_Main) getActivity()).optionsItemSelected(item);
-        }
-    }
 
     @Override
     public void onAccuracyChanged(final Sensor sensor, int accuracy) {
@@ -370,4 +356,42 @@ public class Fragment_Overview extends Fragment implements SensorEventListener {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+
+            case R.id.bouton1:
+                newFragment = new Fragment_Overview();
+                transaction = getFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
+
+            case R.id.bouton2:
+                newFragment = new Fragment_Exercices();
+                transaction = getFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
+
+            case R.id.bouton3:
+                newFragment = new Fragment_Information();
+                transaction = getFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                break;
+
+            case R.id.bouton4:
+                newFragment = new Fragment_Settings();
+                transaction = getFragmentManager().beginTransaction();
+                transaction.replace(android.R.id.content, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                break;
+        }
+    }
 }

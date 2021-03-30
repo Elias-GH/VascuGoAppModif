@@ -35,6 +35,7 @@ import android.widget.TextView;
 import org.eazegraph.lib.BuildConfig;
 
 import de.j4velin.pedometer.R;
+import de.j4velin.pedometer.SensorListener;
 
 public class Activity_Main extends FragmentActivity {
 
@@ -43,15 +44,11 @@ public class Activity_Main extends FragmentActivity {
     @Override
     protected void onCreate(final Bundle b) {
         super.onCreate(b);
-       // startService(new Intent(this, SensorListener.class));
+        startService(new Intent(this, SensorListener.class));
         if (b == null) {
             // Create new fragment and transaction
-            Fragment newFragment = new Fragment_Information();
+            Fragment newFragment = new Fragment_Overview();
             FragmentTransaction transaction = getFragmentManager().beginTransaction();
-
-            // Replace whatever is in the fragment_container view with this
-            // fragment,
-            // and add the transaction to the back stack
             transaction.replace(android.R.id.content, newFragment);
 
             // Commit the transaction
@@ -67,97 +64,7 @@ public class Activity_Main extends FragmentActivity {
 
     }
 
-    public void OpenExercices() {
-
-        Fragment newFragment = new SpecificExercice();
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(android.R.id.content, newFragment);
-        transaction.commit();
-    }
-
-  /*  @Override
-    public void onBackPressed() {
-        if (getFragmentManager().getBackStackEntryCount() > 0) {
-            getFragmentManager().popBackStackImmediate();
-        } else {
-            finish();
-        }
-    }*/
-
-    public boolean optionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                getFragmentManager().popBackStackImmediate();
-                break;
-            case R.id.action_home:
-                getFragmentManager().beginTransaction()
-                        .replace(android.R.id.content, new Fragment_Overview()).addToBackStack(null)
-                        .commit();
-                break;
-            case R.id.action_specific_exercice:
-                getFragmentManager().beginTransaction()
-                        .replace(android.R.id.content, new SpecificExercice()).addToBackStack(null)
-                        .commit();
 
 
 
-                break;
-            case R.id.action_settings:
-                getFragmentManager().beginTransaction()
-                        .replace(android.R.id.content, new Fragment_Settings()).addToBackStack(null)
-                        .commit();
-                break;
-            case R.id.action_weekly_exercice:
-                getFragmentManager().beginTransaction()
-                        .replace(android.R.id.content, new WeeklyExercice()).addToBackStack(null)
-                        .commit();
-                break;
-            //case R.id.action_leaderboard:
-            case R.id.action_achievements:
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(this);
-                builder2.setTitle("Google services required");
-                builder2.setMessage(
-                        "This feature is not available on the F-Droid version of the app");
-                builder2.setNegativeButton(android.R.string.ok,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                builder2.create().show();
-                break;
-            case R.id.action_faq:
-                startActivity(new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("https://vascugoweb.fr/faq"))
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
-                break;
-            case R.id.action_about:
-                AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle(R.string.about);
-                TextView tv = new TextView(this);
-                tv.setPadding(10, 10, 10, 10);
-                tv.setText(R.string.about_text_links);
-                try {
-                    tv.append(getString(R.string.about_app_version,
-                            getPackageManager().getPackageInfo(getPackageName(), 0).versionName));
-                } catch (NameNotFoundException e1) {
-                    // should not happen as the app is definitely installed when
-                    // seeing the dialog
-                    e1.printStackTrace();
-                }
-                tv.setMovementMethod(LinkMovementMethod.getInstance());
-                builder.setView(tv);
-                builder.setPositiveButton(android.R.string.ok,
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(final DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                builder.create().show();
-                break;
-        }
-        return true;
-    }
 }

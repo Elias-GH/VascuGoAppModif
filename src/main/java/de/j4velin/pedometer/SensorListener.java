@@ -172,19 +172,6 @@ public class SensorListener extends Service implements SensorEventListener {
                         .getService(this, 3, new Intent(this, SensorListener.class), 0));
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        if (BuildConfig.DEBUG) Logger.log("SensorListener onDestroy");
-        try {
-            SensorManager sm = (SensorManager) getSystemService(SENSOR_SERVICE);
-            sm.unregisterListener(this);
-        } catch (Exception e) {
-            if (BuildConfig.DEBUG) Logger.log(e);
-            e.printStackTrace();
-        }
-    }
-
     public static Notification getNotification(final Context context) {
         if (BuildConfig.DEBUG) Logger.log("getNotification");
         SharedPreferences prefs = context.getSharedPreferences("pedometer", Context.MODE_PRIVATE);

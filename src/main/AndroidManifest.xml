@@ -58,7 +58,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".SensorListener" />
+        <service android:name=".SensorListener" android:stopWithTask="false" />
         <service
             android:name=".widget.DashClock"
             android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA">

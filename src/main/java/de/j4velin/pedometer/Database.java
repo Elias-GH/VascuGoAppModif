@@ -93,7 +93,7 @@ public class Database extends SQLiteOpenHelper {
                 .query(DB_NAME, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
     }
 
-    /**
+    /*
      * Inserts a new entry in the database, if there is no entry for the given
      * date yet. Steps should be the current number of steps and it's negative
      * value will be used as offset for the new date. Also adds 'steps' steps to

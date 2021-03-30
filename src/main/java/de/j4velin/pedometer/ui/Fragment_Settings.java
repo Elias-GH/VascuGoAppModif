@@ -139,34 +139,6 @@ public class Fragment_Settings extends PreferenceFragment implements OnPreferenc
         }
     }
 
-    @Override
-    public void onCreateOptionsMenu(final Menu menu, final MenuInflater inflater) {
-        inflater.inflate(R.menu.main, menu);
-        for(int i = 0; i < menu.size(); i++) {
-            MenuItem item = menu.getItem(i);
-            if (item.getItemId() == R.id.action_home || item.getItemId() == R.id.action_about || item.getItemId() == R.id.action_achievements
-                    || item.getItemId() == R.id.action_faq || item.getItemId() == R.id.action_settings || item.getItemId() == R.id.action_specific_exercice
-                    || item.getItemId() == R.id.action_specific_exercice || item.getItemId() == R.id.action_split_count || item.getItemId() == R.id.action_weekly_exercice)
-            {
-                SpannableString spanString = new SpannableString(menu.getItem(i).getTitle().toString());
-                int end = spanString.length();
-                spanString.setSpan(new RelativeSizeSpan(1.3f), 0, end, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                item.setTitle(spanString);
-            }
-        }
-    }
-
-    @Override
-    public void onPrepareOptionsMenu(final Menu menu) {
-        super.onPrepareOptionsMenu(menu);
-        menu.findItem(R.id.action_settings).setVisible(false);
-        menu.findItem(R.id.action_split_count).setVisible(false);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
-        return ((Activity_Main) getActivity()).optionsItemSelected(item);
-    }
 
     @Override
     public boolean onPreferenceClick(final Preference preference) {

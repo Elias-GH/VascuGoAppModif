@@ -20,37 +20,72 @@
 
         <Button
             android:id="@+id/bouton1"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
+            android:layout_width="100dp"
+            android:layout_height="70dp"
             android:layout_gravity="bottom"
-            android:text="Accueil" />
+            android:background="@drawable/custom_button"
+            android:text="Accueil"
+
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.01" />
 
         <Button
             android:id="@+id/bouton2"
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_gravity="bottom"
-            android:text="Exercices" />
+            android:background="@drawable/custom_button"
+            android:text="Exercices"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.70"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.01" />
 
         <Button
 
 
             android:id="@+id/bouton3"
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_gravity="bottom"
-            android:text="Historique" />
+            android:background="@drawable/custom_button"
+            android:text="Historique"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.35"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.01" />
 
-        <Button
+
+        <ImageView
 
             android:id="@+id/bouton4"
             android:layout_width="100dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_gravity="bottom"
             android:clickable="true"
-            android:src="@drawable/setting" />
+            android:src="@drawable/setting"
+            android:background="@drawable/custom_button"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1" />
 
 
     </LinearLayout>
+
 
 </RelativeLayout>
